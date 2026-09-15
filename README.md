@@ -38,6 +38,9 @@ The project's nested robots.txt does not control crawling: crawlers consult
 https://notkaede-11.github.io/robots.txt. Verify that policy after deployment.
 Submit the sitemap through verified Google Search Console and Bing Webmaster
 Tools properties. Submission does not guarantee indexing or AI citations.
+The public Google and Bing verification meta tags in the homepage must be kept
+to retain ownership verification. They are site-verification values, not login
+credentials. Do not publish account emails, passwords or API credentials here.
 
 ## Assets and license
 
