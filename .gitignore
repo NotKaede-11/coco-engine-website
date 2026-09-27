@@ -23,6 +23,8 @@
 !/website/assets/provenance.json
 !/website/download-options.mjs
 !/website/index.html
+!/website/llms.txt
+!/website/llms-full.txt
 !/website/robots.txt
 !/website/site.js
 !/website/sitemap.xml

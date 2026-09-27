@@ -55,10 +55,9 @@ def main():
     assert metadata['offers']['price'] == '0'
     assert 'aggregateRating' not in metadata, 'Do not misrepresent Elo as a review rating'
     assert 'CuckooChess are different projects' in text
-    assert 'download-link' in page.ids and 'download-platform' in page.ids
+    assert 'targetDownloadBtn' in page.ids
     assert 'copy-commands' not in page.ids and 'results' not in page.ids
-    assert 'engine' in page.ids
-    assert any(tag == 'details' and a.get('id') == 'download' and 'open' not in a for tag, a in page.tags)
+    assert 'engine' in page.ids and 'downloads' in page.ids
     assert any(tag == 'script' and a.get('type') == 'module' for tag, a in page.tags)
     links = 0
     for tag, attrs in page.tags:
