@@ -1,5 +1,5 @@
 {
-  "version": "1.5.0",
+  "version": "1.5.1",
   "artifacts": [
     "coco-chess-windows-x86-64-popcnt.exe",
     "coco-chess-windows-x86-64-avx2.exe",

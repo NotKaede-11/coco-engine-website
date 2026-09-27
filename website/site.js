@@ -7,7 +7,7 @@
 // 1. DOWNLOAD PLATFORM TAB SWITCHER & OS DETECTION
 // ==========================================================================
 
-const RELEASE_TAG = "v1.5.0";
+const RELEASE_TAG = "v1.5.1";
 const DOWNLOAD_BASE_URL = `https://github.com/NotKaede-11/Coco-Engine/releases/download/${RELEASE_TAG}`;
 
 const PLATFORM_BUILDS = {
