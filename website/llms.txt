@@ -37,7 +37,7 @@ Coco is an autonomous tournament-grade chess engine communicating via the univer
 - **Endgame Knowledge**: Integrated Syzygy tablebase probing (up to 6-piece WDL and DTZ).
 
 ## Tournament Rankings
-- **CCRL**: Actively competing in the Computer Chess Rating Lists (CCRL 40/15), competing in Division 13 with an established rating over 2500+ Elo.
+- **CCRL**: Rated 2994 Elo (+99/−99, 61.5% score over 26 games) on the official Computer Chess Rating Lists (CCRL 40/15).
 - **CEGT**: Tested against standard open-source engines in rapid and blitz controls.
 
 ## Links & Resources

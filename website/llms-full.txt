@@ -52,6 +52,6 @@ Coco supports standard Universal Chess Interface (UCI) protocol commands:
 - `stop`: Halts search immediately and outputs the best move (`bestmove <move>`).
 
 ### 5. Benchmark Performance
-- Competes in Computer Chess Rating Lists (CCRL 40/15) in Division 13 testing.
+- Official CCRL Rating: 2994 Elo (+99/−99, 61.5% score over 26 games on the CCRL 40/15 rating list).
 - Single-thread NPS: ~15,000,000+ nodes/second on modern x86-64 processors.
 - Multi-thread scaling: Near-linear speedup across 4 to 16 cores via Lazy SMP.
