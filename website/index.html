@@ -6,7 +6,7 @@
   <title>Coco Chess Engine</title>
   
   <!-- SEO & Search Discoverability -->
-  <meta name="description" content="Coco Chess Engine is a high-performance, open-source C++20 UCI chess engine with custom 768->512x2 NNUE evaluation, Lazy SMP multithreading, and official CCRL tournament ratings of 3027 Elo (40/15) and 2986 Elo (Blitz). Created and maintained by NotKaede-11.">
+  <meta name="description" content="Coco is a free, open-source UCI engine for standard chess and Chess960, with embedded Ravager v3 NNUE, Lazy SMP search, and Syzygy tablebase support.">
   <meta name="keywords" content="Coco Chess Engine, NotKaede-11, NNUE chess engine, C++20 chess engine, UCI chess engine, CCRL chess, Lazy SMP, open source chess">
   <meta name="author" content="NotKaede-11">
   <meta name="creator" content="NotKaede-11">
@@ -21,8 +21,8 @@
   <!-- OpenGraph Meta Tags -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Coco Chess Engine">
-  <meta property="og:title" content="Coco Chess Engine — High Performance C++20 NNUE Engine">
-  <meta property="og:description" content="Open-source C++20 UCI chess engine featuring custom 768->512x2 NNUE evaluation and tournament-tested search. Engineered and maintained by NotKaede-11.">
+  <meta property="og:title" content="Coco Chess Engine — Standard Chess and Chess960">
+  <meta property="og:description" content="A free, open-source UCI engine for standard chess and Chess960 with embedded Ravager v3 NNUE.">
   <meta property="og:url" content="https://notkaede-11.github.io/coco-engine-website/">
   <meta property="og:image" content="https://notkaede-11.github.io/coco-engine-website/assets/coco-hat.png">
   <meta property="og:image:type" content="image/png">
@@ -33,7 +33,7 @@
   <!-- Twitter Card Tags -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Coco Chess Engine — By NotKaede-11">
-  <meta name="twitter:description" content="Free open-source C++20 UCI chess engine with embedded NNUE evaluation and Lazy SMP. Created by NotKaede-11.">
+  <meta name="twitter:description" content="Free open-source UCI engine for standard chess and Chess960 with embedded Ravager v3 NNUE.">
   <meta name="twitter:image" content="https://notkaede-11.github.io/coco-engine-website/assets/coco-hat.png">
   <meta name="twitter:image:alt" content="Coco Chess Engine turquoise and gold witch-hat logo">
   
@@ -56,11 +56,11 @@
     "alternateName": "Coco",
     "url": "https://notkaede-11.github.io/coco-engine-website/",
     "image": "https://notkaede-11.github.io/coco-engine-website/assets/coco-hat.png",
-    "description": "A free, open-source C++20 UCI chess engine with NNUE evaluation, Lazy SMP multithreading, and optional Syzygy tablebase support.",
+    "description": "A free, open-source C++20 UCI engine for standard chess and Chess960 with embedded Ravager v3 NNUE, Lazy SMP, and Syzygy tablebase support.",
     "applicationCategory": "GameApplication",
     "operatingSystem": "Windows, Linux, macOS",
-    "softwareVersion": "1.5.1",
-    "downloadUrl": "https://github.com/NotKaede-11/Coco-Engine/releases/tag/v1.5.1",
+    "softwareVersion": "2.0.0",
+    "downloadUrl": "https://github.com/NotKaede-11/Coco-Engine/releases/tag/v2.0.0",
     "license": "https://www.gnu.org/licenses/gpl-3.0.html",
     "isAccessibleForFree": true,
     "offers": {
@@ -135,7 +135,7 @@
           </div>
 
           <p class="hero-standfirst">
-            Coco is an autonomous tournament-grade C++20 chess engine pairing custom 768→512×2 NNUE neural evaluation with razor-sharp alpha-beta search and Lazy SMP concurrency.
+            An open-source C++20 engine for standard chess and Chess960. Each executable includes Ravager v3 neural evaluation and connects to any compatible UCI chess GUI.
           </p>
 
           <p class="hero-attribution-lead">
@@ -159,7 +159,7 @@
             <div class="card-title-group">
               <img class="card-emblem" src="assets/coco-hat.png" width="48" height="42" alt="Coco Emblem">
               <div>
-                <div style="font-weight: 800; font-size: 1.1rem; color: var(--ink);">Coco 1.5.1</div>
+                <div style="font-weight: 800; font-size: 1.1rem; color: var(--ink);">Coco 2.0.0</div>
                 <div class="mono-tag">Architecture Telemetry</div>
               </div>
             </div>
@@ -169,11 +169,11 @@
           <div class="card-spec-grid">
             <div class="card-spec-item">
               <div class="card-spec-label">Evaluation</div>
-              <div class="card-spec-val accent">768→512×2 NNUE</div>
+              <div class="card-spec-val accent">Ravager v3 NNUE</div>
             </div>
             <div class="card-spec-item">
-              <div class="card-spec-label">Tournament Rating</div>
-              <div class="card-spec-val">CCRL 3027 / 2986</div>
+              <div class="card-spec-label">Variants</div>
+              <div class="card-spec-val">Standard / Chess960</div>
             </div>
             <div class="card-spec-item">
               <div class="card-spec-label">Concurrency</div>
@@ -202,22 +202,22 @@
           <div class="telemetry-item">
             <div class="telemetry-label">CCRL 40/15 Rating</div>
             <div class="telemetry-num highlight">3027</div>
-            <div class="telemetry-desc">Tested on official CCRL 40/15 list (+50/−50 over 98 tournament games; CCRL Blitz: 2986 Elo).</div>
+            <div class="telemetry-desc">Coco 1.5.0, ±50 over 98 games. Coco 1.5.1 scored 2986 on CCRL Blitz.</div>
           </div>
           <div class="telemetry-item">
-            <div class="telemetry-label">Throughput Speed</div>
-            <div class="telemetry-num">18M+</div>
-            <div class="telemetry-desc">Nodes per second on AVX2 SIMD hardware with zero allocation inner loops.</div>
+            <div class="telemetry-label">Chess Engines Diary</div>
+            <div class="telemetry-num">3165</div>
+            <div class="telemetry-desc">Coco 1.5.1 in the October 2026 qualifiers at 3+3.</div>
           </div>
           <div class="telemetry-item">
             <div class="telemetry-label">Neural Architecture</div>
-            <div class="telemetry-num">512×2</div>
-            <div class="telemetry-desc">Custom accumulator network embedded directly into every released binary.</div>
+            <div class="telemetry-num">1024×2</div>
+            <div class="telemetry-desc">Ravager v3 accumulator width across both perspectives.</div>
           </div>
           <div class="telemetry-item">
             <div class="telemetry-label">Endgame Precision</div>
             <div class="telemetry-num">6-Piece</div>
-            <div class="telemetry-desc">Full Syzygy tablebase support with WDL and DTZ probe caching.</div>
+            <div class="telemetry-desc">Optional Syzygy WDL and DTZ probing with local tablebase files.</div>
           </div>
         </div>
       </div>
@@ -232,7 +232,7 @@
           <div class="section-index">01 // CORE ARCHITECTURE</div>
           <h2 class="section-title">Engineered for depth &amp; speed.</h2>
           <p class="section-subtitle">
-            Every module in Coco is designed in modern C++20 with cache locality, zero dynamic allocation during search, and vector SIMD intrinsics.
+            Coco combines an incremental evaluator, alpha-beta search, and shared-table multithreading.
           </p>
         </div>
 
@@ -242,13 +242,13 @@
               <span class="arch-number">ARCH // 01</span>
               <span class="arch-badge">EVALUATION</span>
             </div>
-            <h3 class="arch-title">768→512×2 NNUE Network</h3>
+            <h3 class="arch-title">Ravager v3 NNUE</h3>
             <p class="arch-body">
-              A dual-perspective neural network architecture transforming board squares into dual 512-dimension accumulators with clipped ReLU activations. Incrementally updated on every move.
+              The evaluator uses mirrored king buckets, threat and pawn-pair inputs, and material-dependent output buckets. Coco updates the evaluation state as it searches moves.
             </p>
             <ul class="arch-specs-list">
               <li><span class="spec-key">Accumulator</span><span class="spec-val">16-bit Integer Quantized</span></li>
-              <li><span class="spec-key">SIMD Acceleration</span><span class="spec-val">AVX2 &amp; AVX-512 Intrinsics</span></li>
+              <li><span class="spec-key">Weights</span><span class="spec-val">Original Ravager v3 (CC0)</span></li>
               <li><span class="spec-key">Delivery</span><span class="spec-val">Embedded in Executable</span></li>
             </ul>
           </article>
@@ -260,12 +260,12 @@
             </div>
             <h3 class="arch-title">Alpha-Beta &amp; PVS Framework</h3>
             <p class="arch-body">
-              Principal Variation Search with iterative deepening, adaptive aspiration windows, Late Move Reductions (LMR), Singular Extensions, and Reverse Futility Pruning.
+              Principal variation search with iterative deepening and aspiration windows. Coco 2.0 reuses valid cached cutoffs earlier, uses four-ply continuation history to order quiet moves, and restores depth in selected reduced lines.
             </p>
             <ul class="arch-specs-list">
               <li><span class="spec-key">Selectivity</span><span class="spec-val">NMP, RFP, SEE Pruning</span></li>
               <li><span class="spec-key">Move Ordering</span><span class="spec-val">TT Hash, MVV-LVA, Killers</span></li>
-              <li><span class="spec-key">History Tables</span><span class="spec-val">Continuation &amp; Counter-Move</span></li>
+              <li><span class="spec-key">Low clock</span><span class="spec-val">Last completed best move or legal fallback</span></li>
             </ul>
           </article>
 
@@ -276,12 +276,12 @@
             </div>
             <h3 class="arch-title">Magic Bitboard Movegen</h3>
             <p class="arch-body">
-              64-bit Bitboard representations for all piece topologies. Sliding attack masks for rooks and bishops are computed in O(1) time using precomputed Magic Hash tables.
+              Magic bitboards handle sliding attacks, with a BMI2/PEXT build available. Chess960 uses rook-origin castling rights and UCI Chess960 move encoding.
             </p>
             <ul class="arch-specs-list">
               <li><span class="spec-key">Move Generation</span><span class="spec-val">Pseudo-legal with Filter</span></li>
               <li><span class="spec-key">Slider Lookups</span><span class="spec-val">Fancy Magic Bitboards</span></li>
-              <li><span class="spec-key">Zobrist Hashing</span><span class="spec-val">64-bit Polyglot Compatible</span></li>
+              <li><span class="spec-key">Position Hashing</span><span class="spec-val">64-bit Zobrist</span></li>
             </ul>
           </article>
 
@@ -313,8 +313,7 @@
           <div class="section-index">02 // EMBEDDED NEURAL NETWORK</div>
           <h2 class="section-title">Zero external weights. NNUE baked inside.</h2>
           <p class="section-subtitle">
-            Every Coco release binary includes the complete 768→512×2 neural network compiled directly into the executable. 
-            There are no separate .nnue weight files to download, locate, or configure.
+            Every Coco 2.0 binary includes the Ravager v3 network. Install the executable directly in a compatible UCI GUI.
           </p>
         </div>
 
@@ -323,23 +322,23 @@
             <div class="mono-tag" style="color: var(--accent-vermilion); font-weight: 700;">PLUG &amp; PLAY</div>
             <div style="font-weight: 800; font-size: 1.2rem; color: var(--ink);">Immediate Neural Evaluation</div>
             <p style="font-size: 0.92rem; color: var(--ink-secondary); line-height: 1.6;">
-              Load the Coco binary directly into Cutechess, BanksiaGUI, Nibbler, or Arena. The engine immediately boots into full NNUE mode with zero missing-file errors.
+              Load the Coco binary directly into a UCI-compatible interface such as Cutechess or Arena.
             </p>
           </div>
 
           <div style="background: var(--bg-canvas); border: 1px solid var(--border-hairline); border-radius: var(--radius-md); padding: 28px; display: flex; flex-direction: column; gap: 12px;">
-            <div class="mono-tag" style="color: var(--accent-vermilion); font-weight: 700;">HCE SEPARATION</div>
-            <div style="font-weight: 800; font-size: 1.2rem; color: var(--ink);">No Silent HCE Fallback</div>
+            <div class="mono-tag" style="color: var(--accent-vermilion); font-weight: 700;">VARIANTS</div>
+            <div style="font-weight: 800; font-size: 1.2rem; color: var(--ink);">Chess960 Support</div>
             <p style="font-size: 0.92rem; color: var(--ink-secondary); line-height: 1.6;">
-              Unlike engines that silently degrade to Handcrafted Evaluation (HCE) when missing weight files, Coco guarantees 100% neural evaluation by default in every tournament game.
+              Select Chess960 in your GUI so it sends the correct start position and castling moves.
             </p>
           </div>
 
           <div style="background: var(--bg-canvas); border: 1px solid var(--border-hairline); border-radius: var(--radius-md); padding: 28px; display: flex; flex-direction: column; gap: 12px;">
-            <div class="mono-tag" style="color: var(--accent-vermilion); font-weight: 700;">OPTIONAL OVERRIDES</div>
-            <div style="font-weight: 800; font-size: 1.2rem; color: var(--ink);">Custom Network Testing</div>
+            <div class="mono-tag" style="color: var(--accent-vermilion); font-weight: 700;">CREDITS</div>
+            <div style="font-weight: 800; font-size: 1.2rem; color: var(--ink);">Ravager v3</div>
             <p style="font-size: 0.92rem; color: var(--ink-secondary); line-height: 1.6;">
-              Engine researchers and neural network trainers can still benchmark custom experimental weights anytime via the standard UCI <code style="font-family: var(--font-mono); font-size: 0.8rem; background: var(--bg-card); padding: 2px 6px; border: 1px solid var(--border-hairline);">EvalFile</code> option.
+              Thanks to erensh27 for the Ravager v3 network and evaluator. The release source includes the <a href="https://github.com/NotKaede-11/Coco-Engine/blob/v2.0.0/third_party/NOTICES.md">third-party notices</a>.
             </p>
           </div>
         </div>
@@ -353,7 +352,7 @@
       <div class="wrap">
         <div class="section-header-editorial">
           <div class="section-index">03 // INSTALLATION &amp; RELEASES</div>
-          <h2 class="section-title">Get Coco 1.5.1 for your platform.</h2>
+          <h2 class="section-title">Download Coco 2.0.0</h2>
           <p class="section-subtitle">
             Precompiled standalone binaries ready to be loaded into Cutechess, BanksiaGUI, Nibbler, Arena, or any standard UCI chess interface.
           </p>
@@ -371,13 +370,13 @@
             <div class="target-build-info">
               <div class="build-filename" id="targetFilename">coco-chess-windows-x86-64-popcnt.exe</div>
               <div class="build-requirements" id="targetRequirements">
-                Windows 10/11 64-bit · Intel Core or AMD Ryzen with POPCNT / AVX2 support · Embedded NNUE
+                Windows x86-64 · POPCNT and SSE4.1 required
               </div>
             </div>
 
             <div class="build-specs-row">
               <div class="build-spec-chip"><span class="spec-dot"></span> Embedded NNUE</div>
-              <div class="build-spec-chip"><span class="spec-dot"></span> AVX2 / POPCNT</div>
+              <div class="build-spec-chip"><span class="spec-dot"></span> Platform-specific builds</div>
               <div class="build-spec-chip"><span class="spec-dot"></span> Standalone Executable</div>
             </div>
 
@@ -388,7 +387,7 @@
               </div>
               <div class="build-meta-item">
                 <span class="build-meta-label">Evaluation</span>
-                <span class="build-meta-val">768→512×2 NNUE</span>
+                <span class="build-meta-val">Ravager v3 NNUE</span>
               </div>
               <div class="build-meta-item">
                 <span class="build-meta-label">Concurrency</span>
@@ -401,11 +400,11 @@
             </div>
 
             <div class="build-action-row">
-              <a id="targetDownloadBtn" class="btn-download-active" href="https://github.com/NotKaede-11/Coco-Engine/releases/download/v1.5.1/coco-chess-windows-x86-64-popcnt.exe">
+              <a id="targetDownloadBtn" class="btn-download-active" href="https://github.com/NotKaede-11/Coco-Engine/releases/download/v2.0.0/coco-chess-windows-x86-64-popcnt.exe">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 12l-4-4h2.5V2h3v6H12L8 12zm-6 2h12v1.5H2V14z"/></svg>
                 Download for Windows
               </a>
-              <a class="btn-all-releases" href="https://github.com/NotKaede-11/Coco-Engine/releases/tag/v1.5.1" target="_blank" rel="noopener noreferrer">
+              <a class="btn-all-releases" href="https://github.com/NotKaede-11/Coco-Engine/releases/tag/v2.0.0" target="_blank" rel="noopener noreferrer">
                 View all builds &amp; assets
               </a>
             </div>
@@ -475,17 +474,15 @@
 
         <div class="creator-story-body">
           <p>
-            <strong>Coco Chess Engine</strong> was created and is independently developed by <strong>NotKaede-11</strong> as an ambitious study in modern chess programming, low-latency SIMD evaluation, and autonomous neural training pipelines.
+            <strong>Coco Chess Engine</strong> is maintained by <strong>NotKaede-11</strong>. See the <a href="https://github.com/NotKaede-11/Coco-Engine/blob/v2.0.0/CHANGELOG.md#200">2.0 changelog</a> for release changes and local match results.
           </p>
           <p>
-            Named after Coco from <em>Witch Hat Atelier</em>—built with that same spirit of quiet discovery and disciplined craft. Coco Chess Engine and CuckooChess are different projects. The engine is developed completely in the open, validated through continuous CCRL tournament testing, and published under the GNU General Public License v3.0.
+            Named after Coco from <em>Witch Hat Atelier</em>. Coco Chess Engine and CuckooChess are different projects.
           </p>
           <div class="creator-badges-row">
             <span class="creator-badge">Creator: NotKaede-11</span>
             <span class="creator-badge">C++20 Standard</span>
             <span class="creator-badge">Open Source (GPL-3.0)</span>
-            <span class="creator-badge">CCRL 40/15: 3027 Elo</span>
-            <span class="creator-badge">CCRL Blitz: 2986 Elo</span>
           </div>
         </div>
       </div>
@@ -533,12 +530,12 @@
       </div>
 
       <div class="footer-bottom">
-        <span>© 2026 NotKaede-11. All development rights and original architecture belong to <a href="https://github.com/NotKaede-11" target="_blank" rel="noopener noreferrer">NotKaede-11</a>.</span>
+        <span>© 2026 NotKaede-11. See the release source for component credits and licenses.</span>
         <span>Inspired by Witch Hat Atelier. Unaffiliated with its creators or publishers.</span>
       </div>
     </div>
   </footer>
 
-  <script src="site.js" type="module"></script>
+  <script src="site.js?v=2.0.0" type="module"></script>
 </body>
 </html>

@@ -52,10 +52,17 @@ def main():
     heading = re.search(r'<h1\b[^>]*>(.*?)</h1>', text, re.S)[1]
     assert ' '.join(re.sub(r'<[^>]+>', '', heading).split()) == 'Coco Chess Engine'
     assert metadata['downloadUrl'].endswith('/v' + release['version'])
+    release_url = metadata['downloadUrl']
+    assert any(tag == 'a' and attrs.get('href') == release_url for tag, attrs in page.tags)
+    direct_download = next(attrs['href'] for tag, attrs in page.tags
+                           if tag == 'a' and attrs.get('id') == 'targetDownloadBtn')
+    assert direct_download.rsplit('/', 1)[0] == release_url.replace('/tag/', '/download/')
+    assert direct_download.rsplit('/', 1)[1] in release['artifacts']
     assert metadata['offers']['price'] == '0'
     assert 'aggregateRating' not in metadata, 'Do not misrepresent Elo as a review rating'
     assert 'CuckooChess are different projects' in text
     assert 'targetDownloadBtn' in page.ids
+    assert f'Download Coco {release["version"]}' in text
     assert 'copy-commands' not in page.ids and 'results' not in page.ids
     assert 'engine' in page.ids and 'downloads' in page.ids
     assert any(tag == 'script' and a.get('type') == 'module' for tag, a in page.tags)

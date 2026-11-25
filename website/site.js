@@ -7,71 +7,48 @@
 // 1. DOWNLOAD PLATFORM TAB SWITCHER & OS DETECTION
 // ==========================================================================
 
-const RELEASE_TAG = "v1.5.1";
-const DOWNLOAD_BASE_URL = `https://github.com/NotKaede-11/Coco-Engine/releases/download/${RELEASE_TAG}`;
-
-const PLATFORM_BUILDS = {
-  windows: {
-    name: "Windows",
-    filename: "coco-chess-windows-x86-64-popcnt.exe",
-    requirements: "Windows 10/11 64-bit · Intel Core or AMD Ryzen with POPCNT / AVX2 support · Embedded NNUE",
-    url: `${DOWNLOAD_BASE_URL}/coco-chess-windows-x86-64-popcnt.exe`
-  },
-  linux: {
-    name: "Linux",
-    filename: "coco-chess-linux-x86-64-popcnt",
-    requirements: "Linux x86-64-v3 or ARM64 · GLIBC 2.31+ · Supports Ubuntu, Debian, Fedora, Arch · Embedded NNUE",
-    url: `${DOWNLOAD_BASE_URL}/coco-chess-linux-x86-64-popcnt`
-  },
-  macos: {
-    name: "macOS",
-    filename: "coco-chess-macos-apple-silicon",
-    requirements: "macOS 12+ Monterey, Ventura, Sonoma · Native Apple Silicon (M1/M2/M3) & Intel builds · Embedded NNUE",
-    url: `${DOWNLOAD_BASE_URL}/coco-chess-macos-apple-silicon`
-  }
-};
+import {detectArchitecture, detectPlatform, downloadChoice} from './download-options.mjs';
 
 function initDownloadTabs() {
   const tabButtons = document.querySelectorAll('.os-tab-btn');
   const filenameEl = document.getElementById('targetFilename');
   const reqEl = document.getElementById('targetRequirements');
   const downloadLink = document.getElementById('targetDownloadBtn');
-  const heroDownloadLink = document.getElementById('heroDownloadBtn');
+  const releaseLink = document.querySelector('.btn-all-releases');
+  if (!filenameEl || !reqEl || !downloadLink || !releaseLink) return;
 
-  function selectPlatform(key) {
-    const build = PLATFORM_BUILDS[key] || PLATFORM_BUILDS.windows;
+  const device = {
+    userAgent: navigator.userAgent,
+    platform: navigator.platform,
+    hintPlatform: navigator.userAgentData?.platform,
+    mobile: navigator.userAgentData?.mobile,
+    maxTouchPoints: navigator.maxTouchPoints
+  };
+  const detected = detectPlatform(device);
+
+  function selectPlatform(key, architecture) {
+    const choice = downloadChoice(key, architecture, releaseLink.href);
     tabButtons.forEach(btn => {
       btn.classList.toggle('active', btn.dataset.os === key);
+      btn.setAttribute('aria-pressed', String(btn.dataset.os === key));
     });
-
-    if (filenameEl) filenameEl.textContent = build.filename;
-    if (reqEl) reqEl.textContent = build.requirements;
-    if (downloadLink) {
-      downloadLink.href = build.url;
-      downloadLink.innerHTML = `<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 12l-4-4h2.5V2h3v6H12L8 12zm-6 2h12v1.5H2V14z"/></svg> Download for ${build.name}`;
-    }
+    filenameEl.textContent = choice.asset || 'Choose a build on GitHub';
+    reqEl.textContent = choice.asset
+      ? architecture === 'x64' ? 'x86-64 · POPCNT and SSE4.1 required' : 'Linux ARM64 · ARMv8-A'
+      : key === 'macos' ? 'Apple Silicon and Intel builds are listed separately.'
+        : 'Check the operating system and CPU requirements before downloading.';
+    downloadLink.href = choice.href;
+    downloadLink.textContent = choice.label;
   }
 
   tabButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-      selectPlatform(btn.dataset.os);
+      const os = btn.dataset.os;
+      const architecture = os === detected ? detectArchitecture(os, device) : os === 'macos' ? '' : 'x64';
+      selectPlatform(os, architecture);
     });
   });
-
-  // OS Detection
-  let detected = 'windows';
-  const ua = navigator.userAgent || '';
-  if (/Macintosh|Mac OS X/i.test(ua)) {
-    detected = 'macos';
-  } else if (/Linux/i.test(ua) && !/Android/i.test(ua)) {
-    detected = 'linux';
-  }
-  selectPlatform(detected);
-
-  if (heroDownloadLink) {
-    heroDownloadLink.href = '#downloads';
-    heroDownloadLink.innerHTML = `Go to Download Section <svg class="arrow" aria-hidden="true" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 3v10m0 0l-4-4m4 4l4-4"/></svg>`;
-  }
+  selectPlatform(detected, detectArchitecture(detected, device));
 }
 
 // ==========================================================================
