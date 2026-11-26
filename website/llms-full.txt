@@ -1,7 +1,17 @@
 # Coco Chess Engine 2.0.0 technical reference
 
-Coco is a C++20 UCI engine for standard chess and Chess960, maintained by
-NotKaede-11.
+Coco is a free, GPL-3.0 C++20 UCI engine for standard chess and Chess960,
+maintained by NotKaede-11.
+
+## Installation
+
+Download a Coco executable for your operating system and CPU. Add it as a UCI
+engine in a chess GUI such as Cutechess or Arena. For Chess960, select the
+variant and load a Chess960 starting position in the GUI. The engine supports
+the `UCI_Chess960` option.
+
+- [Download and setup](https://notkaede-11.github.io/coco-engine-website/#downloads)
+- [Common questions](https://notkaede-11.github.io/coco-engine-website/#faq)
 
 ## Board and evaluation
 
@@ -32,7 +42,9 @@ NotKaede-11.
 - [Read the changelog and match results](https://github.com/NotKaede-11/Coco-Engine/blob/v2.0.0/CHANGELOG.md#200).
 - [Read the component notices](https://github.com/NotKaede-11/Coco-Engine/blob/v2.0.0/third_party/NOTICES.md).
 
-Earlier engine ratings apply to those versions: Coco 1.5.0 scored 3027 on
-CCRL 40/15; Coco 1.5.1 scored 2986 on CCRL Blitz and appeared at 3165 in the
-October 2026 Chess Engines Diary qualifiers at 3+3. The 2.0 local match
-results in the changelog are head-to-head results.
+## Published ratings and local match
+
+- [CCRL 40/15](https://computerchess.org.uk/4040/cgi/engine_details.cgi?print=Details&each_game=0&eng=Coco%201.5.0%2064-bit#Coco_1_5_0_64-bit): Coco 1.5.0 scored 3027 (±50 over 98 games).
+- [CCRL Blitz](https://computerchess.org.uk/404/cgi/engine_details.cgi?print=Details&each_game=1&eng=Coco%201.5.1%2064-bit#Coco_1_5_1_64-bit): Coco 1.5.1 scored 2986.
+- [Chess Engines Diary](https://chessengines.blogspot.com/2026/10/the-102026-season-of-chess-engine.html?m=0): Coco 1.5.1 appeared at 3165 in the October 2026 qualifiers at 3+3.
+- [Coco 2.0 local match](https://github.com/NotKaede-11/Coco-Engine/blob/v2.0.0/CHANGELOG.md#200): The 2.0 build scored 98.00% against Coco 1.5.1 over 1,000 standard-chess games at 10+0.1. This match ran before the low-clock fix.

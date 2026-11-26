@@ -1,4 +1,5 @@
-# Only the host-root /robots.txt controls crawling on a project site.
+# GitHub Pages serves this copy under /coco-engine-website/.
+# Crawlers read rules from /robots.txt at the host root.
 User-agent: *
 Allow: /
 

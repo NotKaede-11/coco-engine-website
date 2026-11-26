@@ -1,14 +1,22 @@
 # Coco Chess Engine
 
-Coco 2.0.0 is a free, open-source C++20 UCI engine for standard chess and
-Chess960. It includes the original Ravager v3 NNUE network in each release
-executable and supports Lazy SMP and optional Syzygy tablebase files.
+> Coco 2.0.0 is a free, GPL-3.0 UCI engine for standard chess and Chess960.
+> Windows, Linux, and macOS executables embed the Ravager v3 NNUE network.
 
-- [Downloads](https://github.com/NotKaede-11/Coco-Engine/releases/tag/v2.0.0)
-- [Engine source and setup](https://github.com/NotKaede-11/Coco-Engine/tree/v2.0.0)
-- [Changelog and local match results](https://github.com/NotKaede-11/Coco-Engine/blob/v2.0.0/CHANGELOG.md#200)
-- [Third-party notices](https://github.com/NotKaede-11/Coco-Engine/blob/v2.0.0/third_party/NOTICES.md)
+Coco runs in a UCI-compatible chess GUI such as Cutechess or Arena. It is
+maintained by NotKaede-11. The embedded network and evaluator are credited to
+erensh27.
 
-Coco is maintained by NotKaede-11. The embedded Ravager v3 weights and
-evaluator are credited to erensh27. Coco is named after the character from
-Witch Hat Atelier and is unaffiliated with the series.
+## Download and setup
+
+- [Homepage and setup](https://notkaede-11.github.io/coco-engine-website/#downloads): Build picker and UCI quick start.
+- [Common questions](https://notkaede-11.github.io/coco-engine-website/#faq): GUI setup, CPU compatibility, and Chess960.
+- [Coco 2.0.0 release](https://github.com/NotKaede-11/Coco-Engine/releases/tag/v2.0.0): Executables by OS and CPU.
+- [CPU compatibility](https://github.com/NotKaede-11/Coco-Engine/blob/v2.0.0/README.md#choose-the-right-binary): Requirements for each build.
+
+## Results and source
+
+- [Tournament ratings](https://notkaede-11.github.io/coco-engine-website/#telemetry): CCRL and Chess Engines Diary entries by version.
+- [Changelog and local match](https://github.com/NotKaede-11/Coco-Engine/blob/v2.0.0/CHANGELOG.md#200): Search changes and the 2.0 head-to-head result.
+- [Coco 2.0.0 source](https://github.com/NotKaede-11/Coco-Engine/tree/v2.0.0): Versioned source and component notices.
+- [Technical reference](https://notkaede-11.github.io/coco-engine-website/llms-full.txt): Evaluation, search, time management, and evidence.

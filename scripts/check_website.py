@@ -53,7 +53,10 @@ def main():
     assert ' '.join(re.sub(r'<[^>]+>', '', heading).split()) == 'Coco Chess Engine'
     assert metadata['downloadUrl'].endswith('/v' + release['version'])
     release_url = metadata['downloadUrl']
-    assert any(tag == 'a' and attrs.get('href') == release_url for tag, attrs in page.tags)
+    page_links = {attrs.get('href') for tag, attrs in page.tags if tag == 'a'}
+    assert release_url in page_links
+    assert metadata['releaseNotes'] in page_links
+    assert metadata['softwareHelp']['url'] == CANONICAL + '#downloads'
     direct_download = next(attrs['href'] for tag, attrs in page.tags
                            if tag == 'a' and attrs.get('id') == 'targetDownloadBtn')
     assert direct_download.rsplit('/', 1)[0] == release_url.replace('/tag/', '/download/')
@@ -65,6 +68,7 @@ def main():
     assert f'Download Coco {release["version"]}' in text
     assert 'copy-commands' not in page.ids and 'results' not in page.ids
     assert 'engine' in page.ids and 'downloads' in page.ids
+    assert 'faq' in page.ids and '#faq' in page_links
     assert any(tag == 'script' and a.get('type') == 'module' for tag, a in page.tags)
     links = 0
     for tag, attrs in page.tags:
@@ -96,6 +100,17 @@ def main():
     assert [x.text for x in sitemap.findall('.//{*}loc')] == [CANONICAL]
     robots = (SITE / 'robots.txt').read_text()
     assert 'Allow: /' in robots and CANONICAL + 'sitemap.xml' in robots
+    for file in ('llms.txt', 'llms-full.txt'):
+        reference = (SITE / file).read_text(encoding='utf-8')
+        assert release_url in reference, f'{file} is missing the current release'
+        for href in re.findall(r'\]\((https://[^)]+)\)', reference):
+            if not href.startswith(CANONICAL):
+                continue
+            url = urlsplit(href.removeprefix(CANONICAL))
+            if url.path:
+                assert (SITE / url.path).is_file(), href
+            if url.fragment:
+                assert url.fragment in page.ids, href
     provenance = json.loads((SITE / 'assets/provenance.json').read_text())
     assert provenance['coco-hat.png']['source'] == 'https://github.com/NotKaede-11/Coco-Engine/blob/main/assets/logo.png'
     assert not (SITE / 'assets/coco-atelier.webp').exists()
